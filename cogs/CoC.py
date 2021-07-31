@@ -6,7 +6,6 @@ from time import time
 import asyncio
 import aiohttp
 
-# ! PASSWORT ZEILE 18
 
 class CocDB:
 
@@ -15,7 +14,7 @@ class CocDB:
         self.API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijg2YmRjYjMxLWRkYTQtNDRjZi1hNDM4LTc2ZjVjZDhlNjA0OCIsImlhdCI6MTYyNzY4OTU2OCwic3ViIjoiZGV2ZWxvcGVyLzgwNDFiZTZhLWJiMDktMzkyYS03ZmYyLTVlZGIwMDU0Njg4YiIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjUuODMuMTkxLjEwMSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.oUm4Y4sHamlcAkOHu9-TMxOY0yGQMkSwgYv_v-vEREfOevrKJP7KsOBCN2Od7E4RNC9S93SdyQcjEdE-7YHzTw'
         self.FETCHPLAYER_API_URL = f'https://api.clashofclans.com/v1/players/'
         self.db = mariadb.connect(
-            user='root', host='144.172.75.47', password='Koniferrari10', port=22)
+            user='root', host='localhost', password=None, port=3306)
         self.c = self.db.cursor(buffered=True)
         self.c.execute(f'CREATE DATABASE IF NOT EXISTS `{self.COCDB}`')
         self.db.database = self.COCDB
