@@ -1,5 +1,6 @@
 try:
     import os
+    from time import sleep
     from discord.ext import commands
     import discord
     import json
@@ -8,8 +9,8 @@ try:
     from __bot.embeds import Embeds as embeds
     from __bot.emojis import Emojis as emojis
 except Exception as e:
-    os.system('pip install -r requirements.txt')
-    os.system(__file__)
+    print(str(e))
+    sleep(999999)
 
 
 DEFAULT_PREFIX = '$'
