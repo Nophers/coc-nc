@@ -4,8 +4,3 @@ services:
     restart: always
     container_name: bot
     build: .
-  networks:
-    - bot
-networks:
-  bot:
-    external: true
