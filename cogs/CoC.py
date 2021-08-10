@@ -12,23 +12,25 @@ class CocDB:
 
     def __init__(self):
         self.COCDB = config.config['db']
-        self.API_KEY = config.config['key']
         self.FETCHPLAYER_API_URL = f'https://api.clashofclans.com/v1/players/'
-        self.db = mariadb.connect(
+        self.db = mariadb.ConnectionPool(
+            pool_name = 'pool1',
+            pool_size = 1,
+            pool_reset_connection = False,
             user=config.config['user'], 
             host=config.config['host'], 
             password=config.config['password'],
-            port=30449)
+            port=config.config['port'])
+        self.db = self.db.get_connection()
         self.c = self.db.cursor(buffered=True)
         self.db.database = self.COCDB
         self.c.execute('SET AUTOCOMMIT=1')
         self.c.execute(
             'ALTER DATABASE {} CHARACTER SET utf8 COLLATE utf8_unicode_ci;'.format(self.COCDB))
-        self.c.execute('SET SESSION wait_timeout = 999999999999')
+        self.c.execute('SET SESSION wait_timeout = 999999999999;')
 
 
 cocdb = CocDB().c
-rawcocdb = CocDB()
 
 
 class CoC(commands.Cog):
@@ -57,7 +59,7 @@ class CoC(commands.Cog):
         try:
             tag = '#' + tag.replace('#', '')
             async with aiohttp.ClientSession() as session:
-                async with session.get(f'{rawcocdb.FETCHPLAYER_API_URL}{tag.replace("#","%23")}',headers={"Accept": "application/json", "authorization": f"Bearer {rawcocdb.API_KEY}"}) as request:
+                async with session.get(f'https://api.clashofclans.com/v1/players/{tag.replace("#","%23")}',headers={"Accept": "application/json", "authorization": f"Bearer {config.config['key']}"}) as request:
                     if not (request.status == 200):
                         print(request)
                         return await ctx.send(embed=embeds.Error._text_to_embed(self.bot, ctx, 'This player doesn\'t exist.'))
