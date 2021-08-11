@@ -108,7 +108,7 @@ class CoC(commands.Cog):
                 await asyncio.sleep(0.5)
                 try:
                     while 1:
-                        reaction = await self.bot.wait_for('reaction_add', timeout=60)
+                        reaction = await self.bot.wait_for('reaction_add', timeout=60000)
                         if reaction[0].message.id == msg.id:
                             if str(reaction[0].emoji) == '❌':
                                 await msg.delete()
