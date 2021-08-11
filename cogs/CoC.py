@@ -91,7 +91,7 @@ class CoC(commands.Cog):
                     r = await request.json()
                     playerName = r['name']
             s = time()
-            msg = await ctx.send(embed=embeds.Loading._text_to_embed(self.bot, ctx, f'Searching through 20m+ user records for the player **{playerName}**'))
+            msg = await ctx.send(embed=embeds.Loading._text_to_embed(self.bot, ctx, f'Looping through 20m+ user records for the player **{playerName}**'))
             async with ctx.typing():
                 results =  [await self.searchtagbyseason(season, tag) for season in cocraw.LEGEND_SEASONS]
                 e = time()
@@ -108,7 +108,7 @@ class CoC(commands.Cog):
                 await asyncio.sleep(0.5)
                 try:
                     while 1:
-                        reaction = await self.bot.wait_for('reaction_add', timeout=600000)
+                        reaction = await self.bot.wait_for('reaction_add', timeout=60)
                         if reaction[0].message.id == msg.id:
                             if str(reaction[0].emoji) == '❌':
                                 await msg.delete()
