@@ -91,7 +91,7 @@ class CoC(commands.Cog):
                     r = await request.json()
                     playerName = r['name']
             s = time()
-            msg = await ctx.send(embed=embeds.Loading._text_to_embed(self.bot, ctx, f'Looping through 20m+ user records for the player **{playerName}**'))
+            msg = await ctx.send(embed=embeds.Loading._text_to_embed(self.bot, ctx, f'Looping through 20M+ user records for the player **{playerName}**'))
             async with ctx.typing():
                 results =  [await self.searchtagbyseason(season, tag) for season in cocraw.LEGEND_SEASONS]
                 e = time()
