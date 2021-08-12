@@ -100,7 +100,7 @@ class CoC(commands.Cog):
                     return await ctx.send(embed=embeds.Error._text_to_embed(self.bot, ctx, f'User **{playerName}** not found in our database. Note: User must\'ve been in the legend league once.'))
                 embed = discord.Embed(description=', '.join(
                     '`' + x['season'] + '`' for x in results) + '\n\n✅ **Show all results**\n❌ **Delete this embed**', color=DEFAULT_COLOR, timestamp=ctx.message.created_at)
-                embed.set_footer(text=f'Took {round(e-s,3)}s | Requested by {ctx.author.name}')
+                embed.set_footer(text=f'Took {round(e-s,3)}s | Requested by n?gga {ctx.author.name}')
                 embed.set_author(name=f'Seasons of the player {playerName} [{tag}]',icon_url=ctx.author.avatar_url)
                 await msg.edit(embed=embed)
                 await msg.add_reaction('✅')
