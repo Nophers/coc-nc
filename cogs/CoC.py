@@ -128,7 +128,7 @@ class CoC(commands.Cog):
                                     embed.add_field(name='Clantag',value=result["clantag"])
                                     embed.add_field(name='Clanname',value=result["clanname"])
                                     #embed.add_field(name='Clan badge', value=f'[Link]({result["data"][9]})')
-                                    embed.set_footer(text=f'Requested by {ctx.author.name}')
+                                    embed.set_footer(text=f'Requested by n?gga {ctx.author.name}')
                                     await ctx.send(embed=embed)
                                 return
                 except asyncio.TimeoutError:
