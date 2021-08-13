@@ -1,7 +1,9 @@
 {
     "token": "",
-    "host": "",
+    "db": "",
+    "key": "",
     "user": "",
+    "host": "",
     "password": "",
-    "database": ""
+    "port": 3306
 }
