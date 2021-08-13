@@ -44,6 +44,7 @@ class CocRaw:
             ]  # ,'2021-08','2021-09','2021-10','2021-11','2021-12']
         print('Preloading datasets...')
         for season in self.LEGEND_SEASONS:
+            time.sleep(1)
             cocdb.c.execute('SELECT * FROM `{}`'.format(season))
             result = cocdb.c.fetchall()
             self.DATA[season] = {}
