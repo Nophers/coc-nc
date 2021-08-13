@@ -12,6 +12,7 @@ except Exception as e:
     print(str(e))
     sleep(999999)
 
+print("I am Starting now...")
 
 DEFAULT_PREFIX = '$'
 DEFAULT_COLOR = 0xffffff
