@@ -4,6 +4,7 @@ try:
     from discord.ext import commands
     import discord
     import json
+    import coc
     # import mariadb
     from datetime import datetime, timezone
     from __bot.embeds import Embeds as embeds
@@ -12,7 +13,6 @@ except Exception as e:
     print(str(e))
     sleep(999999)
 
-print("I am Starting now...")
 
 DEFAULT_PREFIX = '$'
 DEFAULT_COLOR = 0xffffff
@@ -46,7 +46,7 @@ class Config(object):
 config = Config()
 
 
-bot = commands.Bot(command_prefix=DEFAULT_PREFIX, #config._get_prefix, # ! NO CUSTOM PREFIX ADDED.
+bot = commands.Bot(command_prefix=DEFAULT_PREFIX,  # config._get_prefix, # ! NO CUSTOM PREFIX ADDED.
                    intents=discord.Intents.all(), case_insensitive=True,
                    self_bot=False)
 
