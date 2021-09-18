@@ -53,7 +53,7 @@ bot = commands.Bot(command_prefix=DEFAULT_PREFIX,  # config._get_prefix, # ! NO 
 
 bot.remove_command('help')
 
-
+#########
 bot_up_since = datetime.now(tz=timezone.utc).strftime('%a, %b %d, %Y %I:%M %p')
 
 
